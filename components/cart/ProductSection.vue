@@ -12,11 +12,11 @@
         <div class="product" v-for="item in this.$store.state.cart" :key="item.id">
           <div class="card">
             <div class="card-img">
-              <img src="~/assets/images/profile.jpg" :alt="item.alt" />
+              <img :src="item.url" :alt="item.alt" />
             </div>
             <div class="card-details">
               <h3 class="title-h3">{{ item.name }}</h3>
-              <p class="text">{{ item.price }}€</p>
+              <p class="text">{{ item.price * item.quantity }}€</p>
               <p class="text">x{{ item.quantity }}</p>
             </div>
           </div>
