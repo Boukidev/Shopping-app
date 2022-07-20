@@ -4,35 +4,35 @@ export const state = () => ({
       id: 1,
       name: "ballon de foot",
       price: 59.99,
-      url: "~/assets/images/profile.jpg",
+      url: require("~/assets/images/profile.jpg"),
       alt: "image product",
     },
     {
       id: 2,
       name: "Robe de soirée",
       price: 179.79,
-      url: "~/assets/images/profile.jpg",
+      url: require("~/assets/images/profile.jpg"),
       alt: "image product",
     },
     {
       id: 3,
       name: "Chaussure de ville",
       price: 81.29,
-      url: "~/assets/images/profile.jpg",
+      url: require("~/assets/images/profile.jpg"),
       alt: "image product",
     },
     {
       id: 4,
       name: "Veste en cuir",
       price: 239.89,
-      url: "~/assets/images/profile.jpg",
+      url: require("~/assets/images/profile.jpg"),
       alt: "image product",
     },
     {
       id: 5,
       name: "Short de plage",
       price: 24.99,
-      url: "~/assets/images/profile.jpg",
+      url: require("~/assets/images/profile.jpg"),
       alt: "image product",
     },
   ],
@@ -49,17 +49,11 @@ export const getters = {
 
 export const mutations = {
   setCartItem(state, item) {
-    if (state.cart.length === 0) {
+    if (state.cart.includes(item) && state.cart.length !== 0) {
+      item.quantity++;
+    } else {
       item.quantity = 1;
       state.cart.push(item);
-    } else {
-      const elIdx = state.cart.findIndex((el) => el.id === item.id);
-      if (elIdx === -1) {
-        item.quantity = 1;
-        state.cart.push(item);
-      } else {
-        item.quantity++;
-      }
     }
   },
   removeCartItem(state, id) {
@@ -77,6 +71,6 @@ export const actions = {
   },
   async deleteInCart({ commit }, id) {
     await commit("removeCartItem", id);
-    alert(`Product remove successfuly !`);
+    alert(`Remove successfuly !`);
   },
 };
