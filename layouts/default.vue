@@ -6,7 +6,10 @@
           <nuxt-link to="/">Home</nuxt-link>
         </li>
         <li class="navitem">
-          <nuxt-link to="/cart">Cart</nuxt-link>
+          <nuxt-link to="/cart">
+            Cart
+            <span>({{ this.$store.state.cart.length }})</span>
+          </nuxt-link>
         </li>
       </ul>
     </nav>
