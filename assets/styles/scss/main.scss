@@ -1,0 +1,30 @@
+body {
+  height: 100vh;
+  color: #f1f1f1;
+  background-color: #373f51;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #f1f1f1;
+}
+
+img {
+  height: auto;
+  width: 100%;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.wrapper {
+  margin: 2rem 10rem;
+}
